@@ -32,15 +32,17 @@ def block_out(img, edge_points):
             phead = edge_points[i+1]
         else:
             phead = edge_points[0]
-        cv2.line(img, (int(ptail.x), int(ptail.y)), (int(phead.x), int(phead.y)), (0,0,255), 5)
-        cv2.line(img, (int(ptail.x), int(ptail.y)), (int(ptail.x), int(ptail.y)), (255,0,0), 5)
-        cv2.line(img, (int(phead.x), int(phead.y)), (int(phead.x), int(phead.y)), (0,255,0), 5)
+        #cv2.line(img, (int(ptail.x), int(ptail.y)), (int(phead.x), int(phead.y)), (0,0,255), 5)
+        #cv2.line(img, (int(ptail.x), int(ptail.y)), (int(ptail.x), int(ptail.y)), (255,0,0), 5)
+        #cv2.line(img, (int(phead.x), int(phead.y)), (int(phead.x), int(phead.y)), (0,255,0), 5)
         for x in xrange(width):
             for y in xrange(height):
                 if is_on_right(phead, ptail, x, y):
                     # set pixel to be transparent
                     img.itemset((y, x, 3), 0)
-                    #img.itemset((y, x, 2), 255)
+                    img.itemset((y, x, 2), 255)
+                    img.itemset((y, x, 1), 255)
+                    img.itemset((y, x, 0), 255)
         #cv2.imshow('abc', img)
         #cv2.waitKey(0)
         #cv2.destroyAllWindows()
