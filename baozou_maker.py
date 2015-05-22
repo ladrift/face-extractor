@@ -11,10 +11,8 @@ def threshold(face_path):
     cv2.destroyAllWindows()
 
 def Contrast(face_path, contrast, brightness):
-    img = Image.open(face_path)
-    grey_img = img.convert('L')
-    #grey_img.show('abc')
-    contrast_enhancer = ImageEnhance.Contrast(grey_img)
+    gray_img = Image.open(face_path)
+    contrast_enhancer = ImageEnhance.Contrast(gray_img)
     contrast_img = contrast_enhancer.enhance(contrast)
     #contrast_img.show("Contrast %f" % factor)
     bright_enhancer = ImageEnhance.Brightness(contrast_img)
@@ -22,6 +20,11 @@ def Contrast(face_path, contrast, brightness):
     #result.show("Bright %f" % factor)
     contrast_img.save('baomanface1.png')
     result.save('baomanface2.png')
+
+def turn_to_gray(img_path):
+    img = Image.open(img_path)
+    gray_img = img.convert('L')
+    gray_img.save(img_path.split('.')[0]+'_gray.png')
 
 def make_baoman(face_path, contrast, brightness):
     Contrast(face_path, contrast, brightness)

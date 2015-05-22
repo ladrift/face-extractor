@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 # $File: face_extract.py
 
-API_KEY = '40482f8f45dfdcd870057b331b140c78'
-API_SECRET = 'w8pay74xRG0yuVeSxUSov4c6d_csH5JB'
+API_KEY = ''
+API_SECRET = ''
 
 from facepp import API, File
 api = API(API_KEY, API_SECRET)
