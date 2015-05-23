@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 # $File: face_extract.py
 
-API_KEY = ''
-API_SECRET = ''
+API_KEY = '40482f8f45dfdcd870057b331b140c78'
+API_SECRET = 'w8pay74xRG0yuVeSxUSov4c6d_csH5JB'
 
 from facepp import API, File
 api = API(API_KEY, API_SECRET)
@@ -58,7 +58,7 @@ def do_extract_face(img_path, five):
     face_id = get_face_id(detection)
     width, height = get_size(detection)
     landmark_result = api.detection.landmark(face_id=face_id)
-    landmarks = get_landmark(landmark_result, five=True)
+    landmarks = get_landmark(landmark_result, five=five)
 
     # Debug
     print_result('anglebaby', detection)

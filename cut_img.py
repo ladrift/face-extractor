@@ -56,8 +56,4 @@ def cut_and_save(img_path, edge_points):
     left, right, bottom, top= edge_space(edge_points)
     print left, right, bottom, top
     face_square = img_alpha[bottom:top, left:right]
-    cv2.imwrite(img_path.split('.')[0] + 'face.png', face_square)
-#    cv2.imshow('abc', img_alpha)
-#    cv2.imwrite('wtf_edge_line.png', img_alpha)
-#    cv2.waitKey(0)
-#    cv2.destroyAllWindows()
+    cv2.imwrite(img_path.split('.')[0] + '_face.png', face_square)
