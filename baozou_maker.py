@@ -18,7 +18,7 @@ def Contrast(face_path, contrast, brightness):
     bright_enhancer = ImageEnhance.Brightness(contrast_img)
     result = bright_enhancer.enhance(brightness)
     #result.show("Bright %f" % factor)
-    result.save(face_path+'_baomanface.png')
+    result.save(face_path.split('.')[0]+'_baomanface.png')
 
 def turn_to_gray(img_path):
     img = Image.open(img_path)
@@ -29,7 +29,7 @@ def make_baoman(face_path, contrast, brightness):
     Contrast(face_path, contrast, brightness)
     # Load two images
     img1 = cv2.imread('panda.jpg')
-    img2 = cv2.imread('baomanface2.png')
+    img2 = cv2.imread(face_path.split('.')[0]+'_baomanface.png')
     y, x, c = img2.shape
     img2 = cv2.resize(img2, (348, 416))
     print 'size: ', 4.0*x, 4.0*y
@@ -54,7 +54,7 @@ def make_baoman(face_path, contrast, brightness):
     #dst = cv2.add(img1_bg,img2_fg)
     img1[height/2-rows/2:height/2-rows/2+rows, width/2-cols/2:width/2-cols/2+cols] = img2[:,:]
     cv2.imshow('res',img1)
-    cv2.imwrite(face_path + '_baoman_panda.png', img1)
+    cv2.imwrite(face_path.split('.')[0] + '_baoman_panda.png', img1)
     cv2.waitKey(0)
     cv2.destroyAllWindows()
 

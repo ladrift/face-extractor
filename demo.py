@@ -1,5 +1,5 @@
 # This demo make a baoman emotics using face extractor
-from extract_face import extract_face
+from extract_face import extract_face, extract_five
 from baozou_maker import make_baoman, turn_to_gray
 
 img_path = 'yaomin.jpg'
